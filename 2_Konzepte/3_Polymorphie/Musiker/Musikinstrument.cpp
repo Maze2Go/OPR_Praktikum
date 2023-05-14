@@ -5,6 +5,7 @@
 Musikinstrument::Musikinstrument(void)
 {
     name = "irgendein Instrument";
+    std::cout << "Konstruktor: Musikinstrument(): " << name << std::endl;
 }
 
 Musikinstrument::Musikinstrument(const std::string &name)
@@ -21,7 +22,7 @@ Musikinstrument::~Musikinstrument(void)
 
 void Musikinstrument::spielen(void) const
 {
-    std::cout << "Ungueltige Operation" << std::endl;
+    std::cout << liefereName() << "erklingt irgendwie" << std::endl;
 }
 
 std::string Musikinstrument::liefereName(void) const
