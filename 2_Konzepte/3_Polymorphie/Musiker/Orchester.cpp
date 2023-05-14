@@ -7,7 +7,7 @@ Orchester::Orchester(void)
 
 Orchester::~Orchester()
 {
-    std::cout << "Destruktor ~Orchester()" << std::endl;
+    std::cout << "Destruktor: ~Orchester()" << std::endl;
 
      for (unsigned int i = 0; i < musiker.size(); i++)
     {
