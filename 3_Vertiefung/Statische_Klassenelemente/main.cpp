@@ -2,31 +2,37 @@
 #include <string>
 using namespace std;
 
-class A 
+class A
 {
 public:
-	void a() {}
+	//made function virtual
+	virtual void a() {}
+	
+	//added virtual Destruktor
+	virtual ~A()
+	{
+	}
 };
 
-class B : public A 
+class B : public A
 {
 public:
-	B(string s="") 
+	B(string s = "")
 	{
 		id = ++idStat;
 		this->s = s;
 		info("B()");
 	}
-	virtual ~B() 
+	virtual ~B()
 	{
 		info("~B()");
 	}
-	void a() 
+	void a()
 	{
 		s += "1";
 		info("B::a()");
 	}
-	virtual void b() 
+	/*virtual*/void b()
 	{
 		s += "2";
 		info("B::b()");
@@ -39,12 +45,14 @@ public:
 	{
 		return idStat;
 	}
+
 protected:
 	string s;
-	void info(const string& text) const 
+	void info(const string &text) const
 	{
 		cout << id << ": " << text << " " << s << endl;
 	}
+
 private:
 	int id;
 	static int idStat;
@@ -52,38 +60,38 @@ private:
 
 int B::idStat = 0;
 
-class C : public B 
+class C : public B
 {
 public:
-	C() : B("C") 
+	C() : B("C")
 	{
 		info("C()");
 	}
-	virtual ~C() 
+	virtual ~C()
 	{
 		info("~C()");
 	}
-	void a() 
+	void a()
 	{
 		s += "3";
 		info("C::a()");
 	}
-	void b() 
+	void b()
 	{
 		s += "4";
 		info("C::b()");
 	}
 };
 
-int main() 
+int main()
 {
 	A a;
 	a.a();
 	cout << "vvv " << B::liefereIdStat() << endl;
-	B b;
+	const B b; // added const
 	b.b();
 	cout << "www " << b.liefereIdStat() << endl;
-	C* c[2];
+	C *c[2];
 	c[0] = new C;
 	c[1] = new C;
 	c[0]->a();
@@ -92,14 +100,13 @@ int main()
 	delete c[1];
 	const C c2;
 	cout << "xxx " << C::liefereIdStat() << endl;
-	A* ac = new C;
+	A *ac = new C;
 	ac->a();
 	delete ac;
 	cout << "yyy " << B::liefereIdStat() << endl;
-	B* bc = new C;
+	B *bc = new C;
 	bc->a();
 	bc->b();
 	delete bc;
 	cout << "zzz " << B::liefereIdStat() << endl;
 }
-	
