@@ -14,7 +14,8 @@ Musiker::Musiker(std::string name)
 Musiker::~Musiker(void)
 {
     std::cout << "Destruktor: ~Musiker(): " << name << std::endl;
-    delete instrument;
+    if (instrument != NULL)
+        delete instrument;
 }
 
 void Musiker::weiseInstrumentZu(Musikinstrument const *musikinstr)
@@ -30,7 +31,6 @@ void Musiker::weiseInstrumentZu(Musikinstrument const *musikinstr)
         instrument = musikinstr;
         std::cout << name << " erhaelt " << musikinstr->liefereName() << std::endl;
     }
-    
 }
 void Musiker::spielen() const
 {
