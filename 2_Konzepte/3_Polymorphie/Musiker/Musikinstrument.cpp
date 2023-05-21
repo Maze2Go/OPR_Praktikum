@@ -22,7 +22,7 @@ Musikinstrument::~Musikinstrument(void)
 
 void Musikinstrument::spielen(void) const
 {
-    std::cout << liefereName() << "erklingt irgendwie" << std::endl;
+    std::cout << liefereName() << " erklingt irgendwie" << std::endl;
 }
 
 std::string Musikinstrument::liefereName(void) const
