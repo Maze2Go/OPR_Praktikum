@@ -12,7 +12,7 @@ Pkw::Pkw(std::string const &name, int _anzahlTueren)
 Pkw::Pkw(Pkw const &pkw1) : Radfahrzeug(pkw1)
 {
     std::cout << "Kopiere Pkw" << std::endl;
-    this->_anzahlTueren = pkw1._anzahlTueren;
+    this->_anzahlTueren = pkw1.anzahlTueren();
 }
 
 int Pkw::anzahlTueren(void) const

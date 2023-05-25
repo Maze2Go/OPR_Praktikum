@@ -14,7 +14,7 @@ Verkehrsmittel::Verkehrsmittel(Verkehrsmittel const &verkm)
 {
     std::cout << "Kopiere Verkehrsmittel (" << verkm.name()<< ")" << std::endl;
     this->_name = "Kopie von " + verkm.name();
-    _position = verkm._position;
+    _position = verkm.position();
 }
 
 // Destruktor
