@@ -1,13 +1,14 @@
 #pragma once
 
-#include "Alamierbar.h"
+#include "Alarmierbar.h"
 
 class AlarmierbarImpl : public Alarmierbar
 {
+    public:
+    
+    private:
     AlarmierbarImpl();
     void alarmieren() override;
     bool istAlamiert() override;
     void alarmZuruecksetzen() override;
-
-
 };
