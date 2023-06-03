@@ -19,3 +19,8 @@ std::string DetektorImpl::liefereName() const
 {
     return name;
 }
+
+void DetektorImpl::ausloesen()
+{
+    //ToDo
+}

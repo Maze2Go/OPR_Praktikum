@@ -5,6 +5,11 @@ AlarmierbarImpl::AlarmierbarImpl(std::string name)
    this->name = name;
 }
 
+AlarmierbarImpl::~AlarmierbarImpl()
+{
+    
+}
+
 void AlarmierbarImpl::alarmieren()
 {
     
