@@ -1,14 +1,17 @@
 #pragma once
 
-#include "Alamierbar.h"
+#include "AlarmierbarImpl.h"
 
-class Flutlicht : public Alarmierbar
+class Flutlicht : public AlarmierbarImpl
 {
-    public:
+    private:
+    int helligkeit_lumen;
+    static int anzahl_flutlicht;
     
 
-    private:
-    Flutlicht();
+    public:
+    Flutlicht(int helligkeit_lumen);
+    virtual ~Flutlicht();
     void alarmieren() override;
     std::string liefereName() const override;
 

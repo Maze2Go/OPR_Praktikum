@@ -1,15 +1,18 @@
 #pragma once
 
-#include "Alamierbar.h"
+#include "AlarmierbarImpl.h"
 
-class Sirene : public Alarmierbar
+class Sirene : public AlarmierbarImpl
 {
-    public:
-    
+public:
 
-    private:
+static int anzahl_sirene;
+
+
+
+private:
     Sirene();
+    virtual ~Sirene();
     void alarmieren() override;
     std::string liefereName() const override;
-
 };
