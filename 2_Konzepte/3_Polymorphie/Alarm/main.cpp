@@ -1,13 +1,24 @@
+#include "Alarmierbar.h"
+#include "Sirene.h"
+#include "BewegungsDetektor.h"
+#include "Flutlicht.h"
+#include "GeraeuschDetektor.h"
+
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-int main() {
+void alarmFuerAlleAnzeigen(vector<Alarmierbar *> *vec);
+void alarmFuerAlleZuruecksetzen(vector<Alarmierbar *> *vec);
+
+int main()
+{
 	cout << "*** Alarmsystem aufbauen\n";
-	
-	vector<Alarmierbar*> vectorAlarmierbar;
-	Detektor* detektor[2];
-	
+
+	vector<Alarmierbar *> vectorAlarmierbar;
+	Detektor *detektor[2];
+
 	detektor[0] = new BewegungsDetektor("BD1");
 
 	Sirene sirene;
@@ -16,9 +27,10 @@ int main() {
 
 	int lumen = 5000;
 	const int N_FLUTLICHT = 3;
-	Flutlicht* flutlicht[N_FLUTLICHT];
-	for(int i=0; i<N_FLUTLICHT; i++) {
-		flutlicht[i] = new Flutlicht(lumen*(i+1));
+	Flutlicht *flutlicht[N_FLUTLICHT];
+	for (int i = 0; i < N_FLUTLICHT; i++)
+	{
+		flutlicht[i] = new Flutlicht(lumen * (i + 1));
 		vectorAlarmierbar.push_back(flutlicht[i]);
 		detektor[0]->anschliessen(*flutlicht[i]);
 	}
@@ -33,11 +45,12 @@ int main() {
 	alarmFuerAlleAnzeigen(&vectorAlarmierbar);
 	detektor[1]->ausloesen();
 	alarmFuerAlleAnzeigen(&vectorAlarmierbar);
-	
+
 	cout << "*** Alarmsystem abbauen\n";
 	delete detektor[0];
 	delete detektor[1];
-	for(auto f : flutlicht) {
+	for (auto f : flutlicht)
+	{
 		delete f;
 	}
 }

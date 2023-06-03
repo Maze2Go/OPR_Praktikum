@@ -1,13 +1,16 @@
 #pragma once
-#include "Alamierbar.h"
+#include "Alarmierbar.h"
+#include <vector>
 
-class Detektor : public Alarmierbar
+class Detektor
 {
-private:
+protected:
     std::string name;
+    std::vector<Alarmierbar *> empfaenger;
 
 public:
-    virtual ~Detektor();
-    void virtual anschliessen() = 0;
+    virtual ~Detektor() = 0;
+    std::string virtual liefereName() const = 0;
+    void virtual anschliessen( Alarmierbar &zu_alarmierendes_geraet) = 0;
     void virtual ausloesen() = 0;
 };

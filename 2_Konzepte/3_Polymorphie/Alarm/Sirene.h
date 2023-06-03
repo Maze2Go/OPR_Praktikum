@@ -4,13 +4,10 @@
 
 class Sirene : public AlarmierbarImpl
 {
-public:
-
-static int anzahl_sirene;
-
-
-
 private:
+    static int anzahl_sirene;
+
+public:
     Sirene();
     virtual ~Sirene();
     void alarmieren() override;

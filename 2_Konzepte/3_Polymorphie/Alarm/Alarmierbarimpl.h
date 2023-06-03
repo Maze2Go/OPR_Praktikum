@@ -4,11 +4,10 @@
 
 class AlarmierbarImpl : public Alarmierbar
 {
-    public:
-    
-    private:
-    AlarmierbarImpl();
+private:
+public:
+    AlarmierbarImpl(std::string name);
     void alarmieren() override;
-    bool istAlamiert() override;
+    bool istAlamiert() const override;
     void alarmZuruecksetzen() override;
 };

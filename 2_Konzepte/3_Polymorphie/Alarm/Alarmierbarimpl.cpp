@@ -1,11 +1,22 @@
 #include "AlarmierbarImpl.h"
 
-AlarmierbarImpl::AlarmierbarImpl()
+AlarmierbarImpl::AlarmierbarImpl(std::string name)
 {
-    name = "tfsd";
+   this->name = name;
 }
 
-AlarmierbarImpl::alarmieren()
+void AlarmierbarImpl::alarmieren()
 {
     
 }
+
+bool AlarmierbarImpl::istAlamiert() const
+{
+    return _istalamiert;
+}
+
+void AlarmierbarImpl::alarmZuruecksetzen()
+{
+    this->_istalamiert = false;
+}
+

@@ -4,14 +4,13 @@
 
 class DetektorImpl : public Detektor
 {
-    private:
-
-    public:
+private:
+public:
     DetektorImpl(std::string name);
     virtual ~DetektorImpl();
-    void anschliessen() override;
-    
-    protected:
-    void alarmieren() override;
+    void anschliessen(Alarmierbar &zu_alarmierendes_geraet) override;
+    std::string liefereName() const override;
 
+protected:
+    void ausloesen() override;
 };
