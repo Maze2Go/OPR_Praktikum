@@ -18,6 +18,7 @@ Sirene::~Sirene()
 
 void Sirene::alarmieren()
 {
+    _istalamiert = true;
     std::cout << liefereName() << " geht an (heul)" << std::endl;
 
 }

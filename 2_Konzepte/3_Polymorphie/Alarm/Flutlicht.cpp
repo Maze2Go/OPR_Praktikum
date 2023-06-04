@@ -17,6 +17,7 @@ Flutlicht::~Flutlicht()
 
 void Flutlicht::alarmieren()
 {
+    _istalamiert = true;
     std::cout << liefereName() << " erstrahlt mit " << helligkeit_lumen << " Lumen" << std::endl;
 }
 
