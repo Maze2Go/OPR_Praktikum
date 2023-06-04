@@ -1,8 +1,12 @@
+#include <iostream>
+
 #include "DetektorImpl.h"
 
 DetektorImpl::DetektorImpl(std::string name)
 {
+    std::cout << "Detektor " << liefereName() << " aufbauen" << std::endl;
     this->name = name;
+
 }
 
 DetektorImpl::~DetektorImpl()
