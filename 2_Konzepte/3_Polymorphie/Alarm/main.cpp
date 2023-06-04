@@ -57,7 +57,7 @@ int main()
 
 void alarmFuerAlleAnzeigen(vector<Alarmierbar *> *vec)
 {
-	for (int i = 0; i < vec->size(); i++)
+	for (unsigned int i = 0; i < vec->size(); i++)
 	{
 		if ((*vec)[i]->istAlamiert())
 		{
@@ -71,7 +71,7 @@ void alarmFuerAlleAnzeigen(vector<Alarmierbar *> *vec)
 }
 void alarmFuerAlleZuruecksetzen(vector<Alarmierbar *> *vec)
 {
-	for (int i = 0; i < vec->size(); i++)
+	for (unsigned int i = 0; i < vec->size(); i++)
 	{
 		vec->at(i)->alarmZuruecksetzen();
 	}
