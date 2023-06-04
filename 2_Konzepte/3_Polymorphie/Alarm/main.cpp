@@ -61,11 +61,11 @@ void alarmFuerAlleAnzeigen(vector<Alarmierbar *> *vec)
 	{
 		if ((*vec)[i]->istAlamiert())
 		{
-			std::cout << (*vec)[i]->liefereName() << " :Alarm ist an" << std::endl;
+			std::cout << (*vec)[i]->liefereName() << ": Alarm ist an" << std::endl;
 		}
 		else
 		{
-			std::cout << (*vec)[i]->liefereName() << " :Alarm ist aus" << std::endl;
+			std::cout << (*vec)[i]->liefereName() << ": Alarm ist aus" << std::endl;
 		}
 	}
 }
