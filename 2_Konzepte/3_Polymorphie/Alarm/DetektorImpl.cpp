@@ -14,7 +14,7 @@ DetektorImpl::~DetektorImpl()
     std::cout << "Detektor " << liefereName() << " abbauen" << std::endl;
     for (unsigned int i = 0; i < empfaenger.size(); i++)
     {
-        delete empfaenger[i];
+        std::cout << empfaenger[i]->liefereName() << " abmelden" << std::endl;
     }
 }
 
