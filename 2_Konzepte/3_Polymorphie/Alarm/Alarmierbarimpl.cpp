@@ -9,7 +9,6 @@ AlarmierbarImpl::AlarmierbarImpl(std::string name)
 
 AlarmierbarImpl::~AlarmierbarImpl()
 {
-    std::cout << liefereName() << " abmelden" << std::endl;
 }
 
 void AlarmierbarImpl::alarmieren()
