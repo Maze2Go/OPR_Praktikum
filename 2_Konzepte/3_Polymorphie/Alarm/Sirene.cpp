@@ -12,7 +12,7 @@ Sirene::Sirene() : AlarmierbarImpl("Sirene Nr. " + std::to_string(anzahl_sirene 
 
 Sirene::~Sirene()
 {
-    std::cout << liefereName() << "abmelden" << std::endl;
+    std::cout << liefereName() << " abmelden" << std::endl;
 }
 
 
