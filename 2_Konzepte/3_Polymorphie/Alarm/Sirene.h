@@ -9,7 +9,6 @@ private:
 
 public:
     Sirene();
-    virtual ~Sirene();
     void alarmieren() override;
     std::string liefereName() const override;
 };

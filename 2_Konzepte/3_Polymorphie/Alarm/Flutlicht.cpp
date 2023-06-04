@@ -10,11 +10,6 @@ Flutlicht::Flutlicht(int helligkeit_lumen) : AlarmierbarImpl("Flutlicht Nr. " + 
     anzahl_flutlicht++;
 }
 
-Flutlicht::~Flutlicht()
-{
-    std::cout << liefereName() << " abmelden" << std::endl;
-}
-
 void Flutlicht::alarmieren()
 {
     _istalamiert = true;

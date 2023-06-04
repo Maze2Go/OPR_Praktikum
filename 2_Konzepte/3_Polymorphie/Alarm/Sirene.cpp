@@ -9,13 +9,6 @@ Sirene::Sirene() : AlarmierbarImpl("Sirene Nr. " + std::to_string(anzahl_sirene 
     anzahl_sirene++;
 }
 
-
-Sirene::~Sirene()
-{
-    std::cout << liefereName() << " abmelden" << std::endl;
-}
-
-
 void Sirene::alarmieren()
 {
     _istalamiert = true;

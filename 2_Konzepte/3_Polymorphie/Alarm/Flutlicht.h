@@ -11,7 +11,6 @@ class Flutlicht : public AlarmierbarImpl
 
     public:
     Flutlicht(int helligkeit_lumen);
-    virtual ~Flutlicht();
     void alarmieren() override;
     std::string liefereName() const override;
 
