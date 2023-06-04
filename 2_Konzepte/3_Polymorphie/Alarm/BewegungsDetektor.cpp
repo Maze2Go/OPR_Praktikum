@@ -1,12 +1,9 @@
 #include "Bewegungsdetektor.h"
 #include <iostream>
 
+ 
 BewegungsDetektor::BewegungsDetektor(std::string name) : DetektorImpl(name)
 {
-}
-BewegungsDetektor::~BewegungsDetektor()
-{
- 
 }
 
 void BewegungsDetektor::ausloesen()

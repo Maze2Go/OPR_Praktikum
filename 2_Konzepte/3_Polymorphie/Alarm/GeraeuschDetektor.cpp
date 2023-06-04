@@ -4,10 +4,6 @@
 GeraeuschDetektor::GeraeuschDetektor(std::string name) : DetektorImpl(name)
 {
 }
-GeraeuschDetektor::~GeraeuschDetektor()
-{
-
-}
 
 void GeraeuschDetektor::ausloesen()
 {
