@@ -6,15 +6,16 @@ DetektorImpl::DetektorImpl(std::string name)
 {
     this->name = name;
     std::cout << "Detektor " << liefereName() << " aufbauen" << std::endl;
-    for (unsigned int i = 0; i < empfaenger.size(); i++)
-    {
-        delete empfaenger[i];
-    }
+    
 }
 
 DetektorImpl::~DetektorImpl()
 {
-    std::cout << "Detekror " << liefereName() << " abbauen" << std::endl;
+    std::cout << "Detektor " << liefereName() << " abbauen" << std::endl;
+    for (unsigned int i = 0; i < empfaenger.size(); i++)
+    {
+        delete empfaenger[i];
+    }
 }
 
 void DetektorImpl::anschliessen(Alarmierbar &zu_alarmierendes_geraet)
