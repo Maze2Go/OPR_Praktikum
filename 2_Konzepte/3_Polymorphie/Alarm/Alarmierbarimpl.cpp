@@ -27,3 +27,9 @@ void AlarmierbarImpl::alarmZuruecksetzen()
     this->_istalamiert = false;
 }
 
+std::string AlarmierbarImpl::liefereName() const 
+{
+return name;
+}
+
+

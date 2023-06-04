@@ -11,4 +11,5 @@ public:
     void alarmieren() override;
     bool istAlamiert() const override;
     void alarmZuruecksetzen() override;
+    std::string liefereName() const override;
 };
