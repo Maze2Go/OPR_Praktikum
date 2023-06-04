@@ -4,9 +4,8 @@
 
 DetektorImpl::DetektorImpl(std::string name)
 {
-    std::cout << "Detektor " << liefereName() << " aufbauen" << std::endl;
     this->name = name;
-
+     std::cout << "Detektor " << liefereName() << " aufbauen" << std::endl;
 }
 
 DetektorImpl::~DetektorImpl()
