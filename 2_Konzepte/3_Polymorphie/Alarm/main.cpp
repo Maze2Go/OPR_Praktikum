@@ -57,8 +57,22 @@ int main()
 
 void alarmFuerAlleAnzeigen(vector<Alarmierbar *> *vec)
 {
-	
+	for (int i = 0; i < vec->size(); i++)
+	{
+		if ((*vec)[i]->istAlamiert())
+		{
+			std::cout << (*vec)[i]->liefereName() << " :Alarm ist an" << std::endl;
+		}
+		else
+		{
+			std::cout << (*vec)[i]->liefereName() << " :Alarm ist aus" << std::endl;
+		}
+	}
 }
 void alarmFuerAlleZuruecksetzen(vector<Alarmierbar *> *vec)
 {
+	for (int i = 0; i < vec->size(); i++)
+	{
+		vec->at(i)->alarmZuruecksetzen();
+	}
 }
