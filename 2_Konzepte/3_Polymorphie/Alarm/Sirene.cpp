@@ -4,7 +4,7 @@
 int Sirene::anzahl_sirene = 0;
 
 
-Sirene::Sirene() : AlarmierbarImpl("Sirene Nr. " + (anzahl_sirene + 1))
+Sirene::Sirene() : AlarmierbarImpl("Sirene Nr. " + std::to_string(anzahl_sirene + 1))
 {
     anzahl_sirene++;
 }
@@ -18,7 +18,7 @@ Sirene::~Sirene()
 
 void Sirene::alarmieren()
 {
-    std::cout << liefereName() << "geht an (heul)" << std::endl;
+    std::cout << liefereName() << " geht an (heul)" << std::endl;
 
 }
 

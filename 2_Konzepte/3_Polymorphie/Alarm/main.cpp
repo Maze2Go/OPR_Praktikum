@@ -57,6 +57,7 @@ int main()
 
 void alarmFuerAlleAnzeigen(vector<Alarmierbar *> *vec)
 {
+	
 }
 void alarmFuerAlleZuruecksetzen(vector<Alarmierbar *> *vec)
 {
