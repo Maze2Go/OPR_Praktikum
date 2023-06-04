@@ -16,7 +16,7 @@ BewegungsDetektor::~BewegungsDetektor()
 
 void BewegungsDetektor::ausloesen()
 {
-    std::cout << "Bewegungsdetektor " << liefereName() << " detektiert eine Garaeusch" << std::endl;
+    std::cout << "Bewegungsdetektor " << liefereName() << " detektiert eine Bewegung" << std::endl;
 
     for (unsigned int i = 0; i < empfaenger.size(); i++)
     {
