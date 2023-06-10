@@ -24,6 +24,7 @@ public:
 
     Atomkern kernfusion(const Atomkern &Fusions_AtomKern);
     Atomkern kernspaltung();
+    void aktualisiereAtommasse(Atomkern & kern);
 
     // Operatorueberladung
     Atomkern operator+(const Atomkern &Fusions_AtomKern)const;
