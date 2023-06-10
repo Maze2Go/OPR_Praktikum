@@ -11,10 +11,10 @@ private:
     int _massenzahl;
     std::string Elementsymbol;
 
+public:
     static const Atomkern PROTON;
     static const Atomkern NEUTRON;
 
-public:
     Atomkern(std::string Elementsymbol = "", int Massenzahl = 0, int Ordnungszahl = 0);
     //= liefereMassezahl() int liefere_protonen();
     int liefereneutronen() const;
@@ -26,7 +26,7 @@ public:
     Atomkern kernspaltung();
 
     // Operatorueberladung
-    Atomkern operator+(const Atomkern &Fusions_AtomKern);
+    Atomkern operator+(const Atomkern &Fusions_AtomKern)const;
     Atomkern operator+=(const Atomkern &Fusions_AtomKern);
     Atomkern operator-(const Atomkern &Fusions_AtomKern);
     Atomkern operator-=(const Atomkern &Fusions_AtomKern);

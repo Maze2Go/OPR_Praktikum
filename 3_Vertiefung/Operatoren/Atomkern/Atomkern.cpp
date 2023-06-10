@@ -36,7 +36,7 @@ Atomkern Atomkern::kernfusion(const Atomkern &Fusions_AtomKern)
     return (Atomkern{symbol() + " + " + Fusions_AtomKern.symbol(), _protonen + Fusions_AtomKern.ordnungszahl(), _neutronen + Fusions_AtomKern.liefereneutronen()});
 }
 
-Atomkern Atomkern::operator+(const Atomkern &Fusions_AtomKern)
+Atomkern Atomkern::operator+(const Atomkern &Fusions_AtomKern) const
 {
     return (Atomkern{symbol() + " + " + Fusions_AtomKern.symbol(), _protonen + Fusions_AtomKern._protonen, _neutronen + _neutronen});
 }
