@@ -1,5 +1,9 @@
 #include "Atomkern.h"
 
+// Static-Variablen
+const Atomkern Atomkern::PROTON = Atomkern{"Proton", 1, 1};
+const Atomkern Atomkern::NEUTRON = Atomkern{"Neutron", 1, 0};
+
 Atomkern::Atomkern(std::string Elementsymbol, int Massenzahl, int Ordnungszahl)
 {
     this->_protonen = Ordnungszahl;

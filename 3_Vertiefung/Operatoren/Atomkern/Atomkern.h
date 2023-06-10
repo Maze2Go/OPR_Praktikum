@@ -11,6 +11,9 @@ private:
     int _massenzahl;
     std::string Elementsymbol;
 
+    static const Atomkern PROTON;
+    static const Atomkern NEUTRON;
+
 public:
     Atomkern(std::string Elementsymbol = "", int Massenzahl = 0, int Ordnungszahl = 0);
     //= liefereMassezahl() int liefere_protonen();
