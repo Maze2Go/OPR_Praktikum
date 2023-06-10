@@ -31,8 +31,11 @@ obj/
 [Rr]elease*/
 Ankh.NoLoad
 
-#exe Files
+#.exe-Files
 *.exe
+
+#.zip-Files
+*.zip
 
 # Tooling
 _ReSharper*/
