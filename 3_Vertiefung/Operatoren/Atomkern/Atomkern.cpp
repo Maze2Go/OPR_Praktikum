@@ -1,82 +1,82 @@
 #include "Atomkern.h"
 
-Atomkern::Atomkern(int Protonen, int Neutronen, std::string Elementsymbol)
+Atomkern::Atomkern(std::string Elementsymbol, int Massenzahl, int Ordnungszahl)
 {
-    anzahl_protonen = Protonen;
-    anzahl_neutronen = Neutronen;
+    this->_protonen = Ordnungszahl;
+    this->_massenzahl = Massenzahl;
     this->Elementsymbol = Elementsymbol;
+    this->_neutronen = Massenzahl - _protonen;
 }
 
-int Atomkern::liefere_neutronen() const
+int Atomkern::liefereneutronen() const
 {
-    return anzahl_neutronen;
+    return _neutronen;
 }
 
-int Atomkern::liefereOrdungszahl() const
+int Atomkern::ordnungszahl() const
 {
-    return anzahl_protonen;
+    return _protonen;
 }
-int Atomkern::liefereMassezahl() const
+int Atomkern::massenzahl() const
 {
-    return (anzahl_neutronen + anzahl_protonen);
+    return _massenzahl;
 }
 
-std::string Atomkern::liefereElementsymbol() const
+std::string Atomkern::symbol() const
 {
     return Elementsymbol;
 }
 
 Atomkern Atomkern::kernfusion(const Atomkern &Fusions_AtomKern)
 {
-    return (Atomkern{anzahl_protonen + Fusions_AtomKern.anzahl_protonen, anzahl_neutronen + anzahl_neutronen});
+    return (Atomkern{symbol() + " + " + Fusions_AtomKern.symbol(), _protonen + Fusions_AtomKern.ordnungszahl(), _neutronen + Fusions_AtomKern.liefereneutronen()});
 }
 
 Atomkern Atomkern::operator+(const Atomkern &Fusions_AtomKern)
 {
-    return (Atomkern{anzahl_protonen + Fusions_AtomKern.anzahl_protonen, anzahl_neutronen + anzahl_neutronen});
+    return (Atomkern{symbol() + " + " + Fusions_AtomKern.symbol(), _protonen + Fusions_AtomKern._protonen, _neutronen + _neutronen});
 }
 
 Atomkern Atomkern::operator+=(const Atomkern &Fusions_Atomkern)
 {
-    this->anzahl_protonen = anzahl_protonen + Fusions_Atomkern.anzahl_protonen;
-    this->anzahl_neutronen = anzahl_neutronen + Fusions_Atomkern.anzahl_neutronen;
-    return (Atomkern{anzahl_protonen + Fusions_Atomkern.anzahl_protonen, anzahl_neutronen + anzahl_neutronen});
+    this->_protonen = _protonen + Fusions_Atomkern._protonen;
+    this->_neutronen = _neutronen + Fusions_Atomkern._neutronen;
+    return (Atomkern{symbol() + " + " + Fusions_Atomkern.symbol(), _protonen + Fusions_Atomkern._protonen, _neutronen + _neutronen});
 }
 
 Atomkern Atomkern::operator-(const Atomkern &Fusions_Atomkern)
 {
-    return (Atomkern{anzahl_protonen - Fusions_Atomkern.anzahl_protonen, anzahl_neutronen - anzahl_neutronen});
+    return (Atomkern{symbol() + " - " + Fusions_Atomkern.symbol(), _protonen - Fusions_Atomkern._protonen, _neutronen - _neutronen});
 }
 
 Atomkern Atomkern::operator-=(const Atomkern &Fusions_Atomkern)
 {
-    this->anzahl_protonen = anzahl_protonen - Fusions_Atomkern.anzahl_protonen;
-    this->anzahl_neutronen = anzahl_neutronen - Fusions_Atomkern.anzahl_neutronen;
-    return (Atomkern{anzahl_protonen - Fusions_Atomkern.anzahl_protonen, anzahl_neutronen - anzahl_neutronen});
+    this->_protonen = _protonen - Fusions_Atomkern._protonen;
+    this->_neutronen = _neutronen - Fusions_Atomkern._neutronen;
+    return (Atomkern{symbol() + " -= " + Fusions_Atomkern.symbol(), _protonen - Fusions_Atomkern._protonen, _neutronen - _neutronen});
 }
 bool Atomkern::operator==(const Atomkern &Kern)
 {
-    if((this->liefereOrdungszahl() == Kern.liefereOrdungszahl()) && (this->liefereMassezahl() == Kern.liefereMassezahl()))
+    if ((this->ordnungszahl() == Kern.ordnungszahl()) && (this->massenzahl() == Kern.massenzahl()))
         return true;
     else
-    return false;
+        return false;
 }
 
 // Globale-Operatoren
 Atomkern operator*(int ganzzahliges_skalar, const Atomkern &kern)
 {
-    return Atomkern{ganzzahliges_skalar * kern.liefere_neutronen(), ganzzahliges_skalar * kern.liefereOrdungszahl(), "Unbenannt"};
+    return Atomkern{std::to_string(ganzzahliges_skalar) + " * " + kern.symbol(), ganzzahliges_skalar * kern.liefereneutronen(), ganzzahliges_skalar * kern.ordnungszahl()};
 }
 
 Atomkern operator*(const Atomkern &kern, int ganzzahliges_skalar)
 {
-    return Atomkern{ganzzahliges_skalar * kern.liefereOrdungszahl(), ganzzahliges_skalar * kern.liefere_neutronen(), "Unbenannt"};
+    return Atomkern{kern.symbol() + " * " + std::to_string(ganzzahliges_skalar), ganzzahliges_skalar * kern.ordnungszahl(), ganzzahliges_skalar * kern.liefereneutronen()};
 }
 
-std::ostream& operator<<(std::ostream& os, const Atomkern& Kern)
+std::ostream &operator<<(std::ostream &os, const Atomkern &Kern)
 {
-    os  << "Element: " << Kern.liefereElementsymbol() << ", Protonen: " << Kern.liefereOrdungszahl() << ", Neutronen: "
-        << Kern.liefere_neutronen() << ", Massenzahl: " << Kern.liefereMassezahl() << std::endl;
+    os << "Element: " << Kern.symbol() << ", Protonen: " << Kern.ordnungszahl() << ", Neutronen: "
+       << Kern.liefereneutronen() << ", Massenzahl: " << Kern.massenzahl() << std::endl;
     return os;
 }
-

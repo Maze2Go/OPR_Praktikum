@@ -6,17 +6,18 @@
 class Atomkern
 {
 private:
-    int anzahl_protonen;
-    int anzahl_neutronen;
+    int _protonen;
+    int _neutronen;
+    int _massenzahl;
     std::string Elementsymbol;
 
 public:
-    Atomkern(int Protonen, int Neutronen, std::string Elementsymbol = "");
+    Atomkern(std::string Elementsymbol = "", int Massenzahl = 0, int Ordnungszahl = 0);
     //= liefereMassezahl() int liefere_protonen();
-    int liefere_neutronen() const;
-    int liefereOrdungszahl() const;
-    int liefereMassezahl() const;
-    std::string liefereElementsymbol() const;
+    int liefereneutronen() const;
+    int ordnungszahl() const;
+    int massenzahl() const;
+    std::string symbol() const;
 
     Atomkern kernfusion(const Atomkern &Fusions_AtomKern);
     Atomkern kernspaltung();
