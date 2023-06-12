@@ -4,10 +4,10 @@
  * @author Thomas Mahr
  */
 
-#include "PrueffolgeAtomkern.h"
+#include "PrueffolgeReaktor.h"
 
 int main() 
 {
-	PrueffolgeAtomkern prueffolgeAtomkern;
-	prueffolgeAtomkern.ausfuehren();
+	PrueffolgeReaktor prueffolgeReaktor;
+	prueffolgeReaktor.ausfuehren();
 }
