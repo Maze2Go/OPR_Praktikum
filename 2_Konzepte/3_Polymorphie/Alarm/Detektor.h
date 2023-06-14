@@ -4,9 +4,6 @@
 
 class Detektor
 {
-protected:
-    std::string name;
-    std::vector<Alarmierbar *> empfaenger;
 
 public:
     virtual ~Detektor() {};
