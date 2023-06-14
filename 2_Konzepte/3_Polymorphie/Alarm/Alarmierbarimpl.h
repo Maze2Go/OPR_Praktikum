@@ -4,6 +4,10 @@
 
 class AlarmierbarImpl : public Alarmierbar
 {
+protected:
+    std::string name;
+    bool _istalamiert;
+
 private:
 public:
     AlarmierbarImpl(std::string name);

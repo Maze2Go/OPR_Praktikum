@@ -3,10 +3,7 @@
 
 class Alarmierbar
 {
-    protected:
-    std::string name;
-    bool _istalamiert;
-    
+   
     public:
     virtual ~Alarmierbar() {};
     virtual void alarmieren() = 0;
