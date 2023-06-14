@@ -12,6 +12,15 @@ Atomkern::Atomkern(std::string Elementsymbol, int Massenzahl, int Ordnungszahl)
     this->_neutronen = Massenzahl - _protonen;
 }
 
+Atomkern::Atomkern(int Massenzahl, int Ordnungszahl)
+{
+    this->_protonen = Ordnungszahl;
+    this->_massenzahl = Massenzahl;
+    this->_neutronen = Massenzahl - _protonen;
+}
+
+
+
 int Atomkern::liefereneutronen() const
 {
     return _neutronen;
@@ -33,7 +42,7 @@ std::string Atomkern::symbol() const
 
 Atomkern Atomkern::kernfusion(const Atomkern &Fusions_Atomkern)
 {
-    return (Atomkern{symbol() + " + " + Fusions_Atomkern.symbol(), massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern.ordnungszahl()});
+    return (Atomkern{massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern.ordnungszahl()});
 }
 
 void Atomkern::aktualisiereAtommasse(Atomkern &kern)
@@ -41,9 +50,16 @@ void Atomkern::aktualisiereAtommasse(Atomkern &kern)
     kern._massenzahl = kern.liefereneutronen() + kern.ordnungszahl();
 }
 
+void Atomkern::Atomkernzuruecksetzen(void)
+{
+    _protonen = 0;
+    _neutronen = 0;
+    aktualisiereAtommasse(*this);
+}
+
 Atomkern Atomkern::operator+(const Atomkern &Fusions_Atomkern) const
 {
-    return (Atomkern{symbol() + " + " + Fusions_Atomkern.symbol(), massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern.ordnungszahl()});
+    return (Atomkern{massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern.ordnungszahl()});
 }
 
 Atomkern Atomkern::operator+=(const Atomkern &Fusions_Atomkern)
@@ -51,12 +67,12 @@ Atomkern Atomkern::operator+=(const Atomkern &Fusions_Atomkern)
     this->_protonen = _protonen + Fusions_Atomkern._protonen;
     this->_neutronen = _neutronen + Fusions_Atomkern._neutronen;
     aktualisiereAtommasse(*this);
-    return (Atomkern{symbol() + " + " + Fusions_Atomkern.symbol(), massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern._protonen});
+    return (Atomkern{massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern._protonen});
 }
 
 Atomkern Atomkern::operator-(const Atomkern &Fusions_Atomkern)
 {
-    return (Atomkern{symbol() + " - " + Fusions_Atomkern.symbol(), massenzahl() - Fusions_Atomkern.massenzahl() ,_protonen - Fusions_Atomkern._protonen});
+    return (Atomkern{massenzahl() - Fusions_Atomkern.massenzahl(), _protonen - Fusions_Atomkern._protonen});
 }
 
 Atomkern Atomkern::operator-=(const Atomkern &Fusions_Atomkern)
@@ -64,9 +80,9 @@ Atomkern Atomkern::operator-=(const Atomkern &Fusions_Atomkern)
     this->_protonen = _protonen - Fusions_Atomkern._protonen;
     this->_neutronen = _neutronen - Fusions_Atomkern._neutronen;
     aktualisiereAtommasse(*this);
-    return (Atomkern{symbol() + " -= " + Fusions_Atomkern.symbol(), massenzahl() - Fusions_Atomkern.massenzahl(), _protonen - Fusions_Atomkern._protonen});
+    return (Atomkern{massenzahl() - Fusions_Atomkern.massenzahl(), _protonen - Fusions_Atomkern._protonen});
 }
-bool Atomkern::operator==(const Atomkern &Kern)
+bool Atomkern::operator==(const Atomkern &Kern) const
 {
     if ((this->ordnungszahl() == Kern.ordnungszahl()) && (this->massenzahl() == Kern.massenzahl()))
         return true;
@@ -77,12 +93,12 @@ bool Atomkern::operator==(const Atomkern &Kern)
 // Globale-Operatoren
 Atomkern operator*(int ganzzahliges_skalar, const Atomkern &kern)
 {
-    return Atomkern{std::to_string(ganzzahliges_skalar) + " * " + kern.symbol(), ganzzahliges_skalar * kern.liefereneutronen(), ganzzahliges_skalar * kern.ordnungszahl()};
+    return Atomkern{ ganzzahliges_skalar * kern.liefereneutronen(), ganzzahliges_skalar * kern.ordnungszahl()};
 }
 
 Atomkern operator*(const Atomkern &kern, int ganzzahliges_skalar)
 {
-    return Atomkern{kern.symbol() + " * " + std::to_string(ganzzahliges_skalar), ganzzahliges_skalar * kern.ordnungszahl(), ganzzahliges_skalar * kern.liefereneutronen()};
+    return Atomkern{ganzzahliges_skalar * kern.ordnungszahl(), ganzzahliges_skalar * kern.liefereneutronen()};
 }
 
 std::ostream &operator<<(std::ostream &os, const Atomkern &Kern)

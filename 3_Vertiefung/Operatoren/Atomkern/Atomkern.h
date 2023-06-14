@@ -16,6 +16,7 @@ public:
     static const Atomkern NEUTRON;
 
     Atomkern(std::string Elementsymbol = "", int Massenzahl = 0, int Ordnungszahl = 0);
+    Atomkern(int Massenzahl, int Ordnungszahl);
     //= liefereMassezahl() int liefere_protonen();
     int liefereneutronen() const;
     int ordnungszahl() const;
@@ -24,14 +25,15 @@ public:
 
     Atomkern kernfusion(const Atomkern &Fusions_AtomKern);
     Atomkern kernspaltung();
-    void aktualisiereAtommasse(Atomkern & kern);
+    void aktualisiereAtommasse(Atomkern &kern);
+    void Atomkernzuruecksetzen(void);
 
     // Operatorueberladung
-    Atomkern operator+(const Atomkern &Fusions_AtomKern)const;
+    Atomkern operator+(const Atomkern &Fusions_AtomKern) const;
     Atomkern operator+=(const Atomkern &Fusions_AtomKern);
     Atomkern operator-(const Atomkern &Fusions_AtomKern);
     Atomkern operator-=(const Atomkern &Fusions_AtomKern);
-    bool operator==(const Atomkern &Kern);
+    bool operator==(const Atomkern &Kern) const;
 };
 
 // Funktions-Prototypen
