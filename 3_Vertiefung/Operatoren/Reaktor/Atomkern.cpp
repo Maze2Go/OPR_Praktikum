@@ -12,6 +12,15 @@ Atomkern::Atomkern(std::string Elementsymbol, int Massenzahl, int Ordnungszahl)
     this->_neutronen = Massenzahl - _protonen;
 }
 
+Atomkern::Atomkern(int Massenzahl, int Ordnungszahl)
+{
+    this->_protonen = Ordnungszahl;
+    this->_massenzahl = Massenzahl;
+    this->_neutronen = Massenzahl - _protonen;
+}
+
+
+
 int Atomkern::liefereneutronen() const
 {
     return _neutronen;
@@ -41,6 +50,13 @@ void Atomkern::aktualisiereAtommasse(Atomkern &kern)
     kern._massenzahl = kern.liefereneutronen() + kern.ordnungszahl();
 }
 
+void Atomkern::Atomkernzuruecksetzen(void)
+{
+    _protonen = 0;
+    _neutronen = 0;
+    aktualisiereAtommasse(*this);
+}
+
 Atomkern Atomkern::operator+(const Atomkern &Fusions_Atomkern) const
 {
     return (Atomkern{symbol() + " + " + Fusions_Atomkern.symbol(), massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern.ordnungszahl()});
@@ -56,7 +72,7 @@ Atomkern Atomkern::operator+=(const Atomkern &Fusions_Atomkern)
 
 Atomkern Atomkern::operator-(const Atomkern &Fusions_Atomkern)
 {
-    return (Atomkern{symbol() + " - " + Fusions_Atomkern.symbol(), massenzahl() - Fusions_Atomkern.massenzahl() ,_protonen - Fusions_Atomkern._protonen});
+    return (Atomkern{symbol() + " - " + Fusions_Atomkern.symbol(), massenzahl() - Fusions_Atomkern.massenzahl(), _protonen - Fusions_Atomkern._protonen});
 }
 
 Atomkern Atomkern::operator-=(const Atomkern &Fusions_Atomkern)
@@ -66,7 +82,7 @@ Atomkern Atomkern::operator-=(const Atomkern &Fusions_Atomkern)
     aktualisiereAtommasse(*this);
     return (Atomkern{symbol() + " -= " + Fusions_Atomkern.symbol(), massenzahl() - Fusions_Atomkern.massenzahl(), _protonen - Fusions_Atomkern._protonen});
 }
-bool Atomkern::operator==(const Atomkern &Kern)
+bool Atomkern::operator==(const Atomkern &Kern) const
 {
     if ((this->ordnungszahl() == Kern.ordnungszahl()) && (this->massenzahl() == Kern.massenzahl()))
         return true;
