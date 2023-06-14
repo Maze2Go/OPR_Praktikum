@@ -7,5 +7,5 @@ class GeraeuschDetektor : public DetektorImpl
 private:
 public:
     GeraeuschDetektor(std::string name);
-    void ausloesen() override;
+    void virtual ausloesen();
 };

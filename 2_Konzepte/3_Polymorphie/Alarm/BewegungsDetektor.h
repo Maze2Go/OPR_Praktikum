@@ -7,5 +7,5 @@ class BewegungsDetektor : public DetektorImpl
     private:
     public:
     BewegungsDetektor(std::string name);
-    void ausloesen() override;
+    void virtual ausloesen();
 };
