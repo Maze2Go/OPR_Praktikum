@@ -12,7 +12,7 @@ Flutlicht::Flutlicht(int helligkeit_lumen) : AlarmierbarImpl("Flutlicht Nr. " + 
 
 void Flutlicht::alarmieren()
 {
-    _istalamiert = true;
+    AlarmierbarImpl::alarmieren();
     std::cout << liefereName() << " erstrahlt mit " << helligkeit_lumen << " Lumen" << std::endl;
 }
 

@@ -13,7 +13,7 @@ AlarmierbarImpl::~AlarmierbarImpl()
 
 void AlarmierbarImpl::alarmieren()
 {
-    
+    _istalamiert = true;
 }
 
 bool AlarmierbarImpl::istAlamiert() const
