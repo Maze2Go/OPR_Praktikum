@@ -40,11 +40,6 @@ std::string Atomkern::symbol() const
     return Elementsymbol;
 }
 
-Atomkern Atomkern::kernfusion(const Atomkern &Fusions_Atomkern)
-{
-    return (Atomkern{massenzahl() + Fusions_Atomkern.massenzahl(), _protonen + Fusions_Atomkern.ordnungszahl()});
-}
-
 void Atomkern::aktualisiereAtommasse(Atomkern &kern)
 {
     kern._massenzahl = kern.liefereneutronen() + kern.ordnungszahl();

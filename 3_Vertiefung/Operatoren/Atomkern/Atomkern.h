@@ -23,7 +23,7 @@ public:
     int massenzahl() const;
     std::string symbol() const;
 
-    Atomkern kernfusion(const Atomkern &Fusions_AtomKern);
+    //Atomkern kernfusion(const Atomkern &Fusions_AtomKern);
     Atomkern kernspaltung();
     void aktualisiereAtommasse(Atomkern &kern);
     void Atomkernzuruecksetzen(void);
