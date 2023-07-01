@@ -8,46 +8,51 @@
 #include <sstream>
 
 // Stellt ein Mono-Audiosignal dar
-class Audio 
+class Audio
 {
 private:
-
 	// Länge des Audiosignals
 	unsigned long int laenge;
-	
-	// Zeiger auf Amplitudenfeld
-	int* amplitude; 
-    
-public:
 
+	// Zeiger auf Amplitudenfeld
+	int *amplitude;
+
+public:
 	// Konstruktor
-	Audio(unsigned long int laenge = 0); 
-    
+	Audio(unsigned long int laenge = 0);
+
 	// Kopierkonstruktor
-	Audio(const Audio&); 
-    
+	Audio(const Audio &);
+
 	// Destruktor
-	virtual ~Audio(); 
-    
+	virtual ~Audio();
+
 	// Zuweisung per Kopie
-	void zuweisung(const Audio&); 
-    
+	void zuweisung(const Audio &);
+
 	// Textuelle Darstellung des Audiosignals
 	std::string text() const;
 
+	//= Operator
+	Audio &operator=(const Audio &a);
+	Audio &operator=(Audio &&other);
+
+		// Verschiebekonstruktor
+		Audio(Audio &&a1);
+
 	// Steuert die Ausgabe über Konsole
 	static bool aktiviereKonsolenausgabe;
-	
+
 	// Gibt Text auf Konsole aus falls aktiviereKonsolenausgabe==true
-	inline static void log(const std::string& s);
-	
-	//Erzeugt ein verrauschtes Audiosignal
-	static Audio* erzeugeRauschSignal(unsigned long int laenge);
+	inline static void log(const std::string &s);
+
+	// Erzeugt ein verrauschtes Audiosignal
+	static Audio *erzeugeRauschSignal(unsigned long int laenge);
 };
 
-void Audio::log(const std::string& s)
+void Audio::log(const std::string &s)
 {
-	if(aktiviereKonsolenausgabe) 
+	if (aktiviereKonsolenausgabe)
 	{
 		std::cout << s;
 	}
